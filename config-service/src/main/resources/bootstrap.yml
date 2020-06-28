@@ -7,8 +7,8 @@ spring:
       server:
         git:
           uri: https://github.com/jeffersonecheverry20/microservice.git
-          serchPath: config-data
-          username: ${GIT_USER}jeffersonecheverry20
+          serchPaths: config-data
+          username: ${GIT_USER}
           password: ${GIT_PASSWORD}
   security:
     user:
