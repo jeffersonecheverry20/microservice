@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "product-service")
+@FeignClient(name = "service-product")
 @RequestMapping(value = "/products")
 public interface ProductClient {
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Product> getProducts(@PathVariable Long id);
+    public ResponseEntity<Product> getProducts(@PathVariable(name = "id") Long id);
 
     @GetMapping("/{id}/stock")
-    public ResponseEntity<Product> updateStock(@PathVariable Long id, @RequestParam(value = "quantity", required = true) Double quantity);
+    public ResponseEntity<Product> updateStock(@PathVariable(name = "id") Long id, @RequestParam(value = "quantity", required = true) Double quantity);
 
 }
