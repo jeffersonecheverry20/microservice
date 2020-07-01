@@ -1,8 +1,9 @@
 package academy.jefferson.shopping.model;
 
+import lombok.Builder;
 import lombok.Data;
 
-@Data
+@Data @Builder
 public class Product {
 
     private Long id;

@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "service-product")
-@RequestMapping(value = "/products")
+@FeignClient(name = "service-product", fallback = ProductHystrixFallbackFactory.class)
 public interface ProductClient {
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/products/{id}")
     public ResponseEntity<Product> getProducts(@PathVariable(name = "id") Long id);
 
-    @GetMapping("/{id}/stock")
+    @GetMapping("/products/{id}/stock")
     public ResponseEntity<Product> updateStock(@PathVariable(name = "id") Long id, @RequestParam(value = "quantity", required = true) Double quantity);
 
 }
