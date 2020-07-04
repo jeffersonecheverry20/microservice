@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8086
 
 eureka:
   client:
@@ -17,8 +17,8 @@ spring:
           uri: lb://service-customer
           predicates:
             - path=/customers/**
-        - id: product-customer
-          uri: lb://product-customer
+        - id: service-product
+          uri: lb://service-product
           predicates:
             - path=/products/**
         - id: shopping-service
